@@ -5,4 +5,6 @@ class ApplicationController < ActionController::Base
   respond_to :html
 
   protect_from_forgery with: :exception
+
+  add_breadcrumb Settings.app, :root_path
 end
