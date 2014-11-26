@@ -7,6 +7,7 @@ capybara-*.html
 .powrc
 /.bundle
 /vendor/bundle
+/vendor/assets/bower
 /log/*
 /tmp/*
 /db/*.sqlite3
