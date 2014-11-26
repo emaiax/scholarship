@@ -14,6 +14,9 @@ gem 'devise'
 gem 'simple_form'
 gem 'responders'
 
+gem 'settingslogic'
+gem 'breadcrumbs_on_rails'
+
 group :development do
   gem 'letter_opener'
   gem 'better_errors'
