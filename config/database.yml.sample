@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+  sslmode: disable
+
+development:
+  <<: *default
+  database: scholarship_development
+
+test:
+  <<: *default
+  database: scholarship_test
+
+production:
+  <<: *default
+  database: scholarship
