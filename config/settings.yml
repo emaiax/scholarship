@@ -1,0 +1,13 @@
+defaults: &defaults
+  app: "Scholarship"
+  host: "scholarship.dev"
+  full_host: "http://scholarship.dev"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
