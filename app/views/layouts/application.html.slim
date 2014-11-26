@@ -26,35 +26,36 @@ html lang=I18n.locale
 
             = link_to 'Home', [:root], class: 'navbar-brand'
 
-          .collapse.navbar-collapse
-            ul.nav.navbar-nav
-              li= link_to fa_icon('users', text: 'link'), [:root]
-              li= link_to fa_icon('hospital-o', text: 'link'), [:root]
-              li= link_to fa_icon('bullhorn', text: 'link'), [:root]
-              li= link_to fa_icon('microphone', text: 'link'), [:root]
-              li.dropdown
-                = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
-                  =' fa_icon('folder-open', text: 'link')
-                  = fa_icon('caret-down')
-
-                ul.dropdown-menu
-                  li= link_to 'link', [:root]
-                  li= link_to 'link', [:root]
-
-              li= link_to fa_icon('map-marker', text: 'link'), [:root]
-
-            ul.nav.navbar-nav.navbar-right
-              li.dropdown
-                = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
-                  .hidden-lg= fa_icon('gear')
-
-                  .visible-lg
-                    =' current_user.name
+          - if user_signed_in?
+            .collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li= link_to fa_icon('users', text: 'link'), [:root]
+                li= link_to fa_icon('hospital-o', text: 'link'), [:root]
+                li= link_to fa_icon('bullhorn', text: 'link'), [:root]
+                li= link_to fa_icon('microphone', text: 'link'), [:root]
+                li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
+                    =' fa_icon('folder-open', text: 'link')
                     = fa_icon('caret-down')
 
-                ul.dropdown-menu
-                  li= link_to fa_icon('user', text: 'Meus dados'), [:edit, :user, :registration]
-                  li= link_to fa_icon('sign-out', text: 'Sair'), [:destroy, :user, :session], method: :delete
+                  ul.dropdown-menu
+                    li= link_to 'link', [:root]
+                    li= link_to 'link', [:root]
+
+                li= link_to fa_icon('map-marker', text: 'link'), [:root]
+
+              ul.nav.navbar-nav.navbar-right
+                li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
+                    .hidden-lg= fa_icon('gear')
+
+                    .visible-lg
+                      =' current_user.name
+                      = fa_icon('caret-down')
+
+                  ul.dropdown-menu
+                    li= link_to fa_icon('user', text: 'Meus dados'), [:edit, :user, :registration]
+                    li= link_to fa_icon('sign-out', text: 'Sair'), [:destroy, :user, :session], method: :delete
 
     main#page-main
       .container
@@ -71,6 +72,6 @@ html lang=I18n.locale
     footer#page-footer
       .container
         span.text-muted.credit
-          = link_to Settings.app, Settings.company_url
+          = link_to Settings.app, Settings.full_host
 
     = javascript_include_tag "application"
