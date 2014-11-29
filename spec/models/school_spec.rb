@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe School, type: :model do
+  describe "relacionamentos" do
+    it { should have_many :users }
+  end
+
   describe "validações" do
     it { should validate_presence_of :doc }
     it { should validate_presence_of :name }
