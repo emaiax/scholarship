@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+  enum role: %i[admin secretary]
+
   devise :database_authenticatable, :validatable
 
-  validates :name, presence: true
+  validates :name, :role, presence: true
 end
