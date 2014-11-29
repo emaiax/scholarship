@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-  enum role: %i[admin secretary]
-
   devise :database_authenticatable, :validatable
 
+  enum role: %i[admin secretary]
+
+  belongs_to :school
   validates :name, :role, presence: true
 end
