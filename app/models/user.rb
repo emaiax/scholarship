@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
 
   belongs_to :school
   validates :name, :role, presence: true
+  validates :school, presence: true, unless: :admin?
 end
